@@ -24,14 +24,9 @@ app.get('/users/:id', (req, res) => {
   res.json(user);
 });
 
-app.put('/users/:id', (req, res) => {
-  const user = users.find(u => u.id === Number(req.params.id));
-  if (!user) return res.status(404).json({ error: 'User not found' });
-  const { name, email } = req.body;
-  if (name) user.name = name;
-  if (email) user.email = email;
-  res.json(user);
-});
+app.put("/users/:id", (req,res)=>{
+    res.status(202).json({message: "update is successfull"})
+})
 
 app.delete('/users/:id', (req, res) => {
   const idx = users.findIndex(u => u.id === Number(req.params.id));
